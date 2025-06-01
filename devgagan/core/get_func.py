@@ -57,7 +57,7 @@ DB_NAME = "smart_users"
 COLLECTION_NAME = "super_user"
 
 VIDEO_EXTENSIONS = ['mp4', 'mov', 'avi', 'mkv', 'flv', 'wmv', 'webm', 'mpg', 'mpeg', '3gp', 'ts', 'm4v', 'f4v', 'vob']
-DOCUMENT_EXTENSIONS = ['pdf', 'docs']
+DOCUMENT_EXTENSIONS = ['pdf', 'docs', 'zip']
 
 mongo_app = pymongo.MongoClient(MONGODB_CONNECTION_STRING)
 db = mongo_app[DB_NAME]
@@ -161,7 +161,7 @@ async def upload_media(sender, target_chat_id, file, caption, edit, topic_id, ms
             thumb_path = None
         
         video_formats = {'mp4', 'mkv', 'avi', 'mov'}
-        document_formats = {'pdf', 'docx', 'txt', 'epub'}
+        document_formats = {'pdf', 'docx', 'txt', 'epub', 'zip'}
         image_formats = {'jpg', 'png', 'jpeg'}
 
         log_caption = (caption or " ") + f"\n👤 Extracted by : {sender}"
